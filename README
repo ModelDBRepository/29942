@@ -1,0 +1,24 @@
+README for the model files associated with the paper
+
+Briska AM; Uhlrich DJ; Lytton, WW.  Computer model of passive signal integration 
+based on whole-cell in vitro studies of rat lateral geniculate nucleus. 
+European Journal of Neuroscience, 17:1531-1541, 2003.
+
+This simulation reproduces the morphologies and charging curves for 2 thalamocortical 
+cells and 2 thalamic interneurons as in Fig. 1 of the above paper.
+
+Note: parameters (Ra,Rm,Cm) are not the same as those shown in Fig. 1; instead the 
+standard parameters from TABLE 2 are used
+
+This simulation can be auto-launched from ModelDB or downloaded as a zip file.
+After unzipping the simulation can be run by typing
+nrngui mosinit.hoc
+on PC or unix or by double clicking on the mosinit.hoc file on the PC.
+
+scholl.hoc may be run from neuron main menu's "load hoc" or the oc command line:
+oc>load_file("scholl.hoc")
+which will plot Scholl(*) plots for these four cells (these plots show the 
+number of processes from a cell that stradle each distance from the soma).
+
+(*) Scholl D. Dendritic organization in the neurons of the visual and 
+motor cortices of the rat. J Anat 87: 387-406, 1953

@@ -1,0 +1,30 @@
+// $Id: scholl.hoc,v 1.4 2003/10/12 15:38:29 billl Exp $
+
+// This code produces a modified Scholl plot for these 4 thalamic cells
+// It is modified since it determines the number of neurites based on
+// intradendritic distance rather than cartesian distance from soma.
+// This makes more sense, particularly for the thalamic interneurons which tend to
+// loop back and would thereby produce additional neurite crossings of
+// soma-centered spheres.
+
+//* scholl
+proc scholl() { local maxdist,ii,sumn
+  revec(ind,vec)
+  $o1.soma distance()
+  maxdist = -1
+  forsec $o1.sl if (distance(1)>maxdist) maxdist=distance(1)
+  for (ii=0;ii<maxdist;ii+=1) {
+    sumn=0
+    forsec $o1.sl if (distance(0)<ii && ii<distance(1)) sumn+=1
+    $o2.append(ii) $o3.append(sumn)
+  }
+}
+
+proc drawscholl() {
+  gg()
+  for ii=0,3 {
+    scholl(ce[ii],ind,vec)
+    vec.line(g,ind,ii+1,2)
+  }
+}
+drawscholl()
